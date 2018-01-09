@@ -9,9 +9,13 @@
 # Can't use something like 'readlink -e $0' because that doesn't work everywhere
 # And HP doesn't define $PWD in a sudo environment, so we define our own
 
+# Only ever want to do this the first time
 function copy_vim_files_to_root(){
+	cp -r ./.vim/backups/ ~/.vim/backups
 	cp -r ./.vim/colors ~/.vim/colors
 	cp -r ./.vim/syntax/ ~/.vim/syntax
+	cp -r ./.vim/swaps/ ~/.vim/swaps
+	cp -r ./.vim/undo/ ~/.vim/undo
 }
 
 
@@ -30,9 +34,6 @@ BASEDIR="`(cd \"$SCRIPT_INDIRECT\"; pwd -P)`"
 
 # SCRIPT_INDIRECT becomes /Users/henock/projects/dotfiles/.
 
-
-
-
 # Only deploy the files I have understood.
 for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,functions,gitconfig,vimrc,gvimrc,curlrc,gitignore_global,inputrc}; do
     [ ! -f $i ] && continue
@@ -50,7 +51,7 @@ for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,func
 	ln -s $i $BASEFILE
 done
 
-if [ ! -e ~/.vim/swapss/ ]; then
+if [ ! -e ~/.vim/swaps/ ]; then
     echo ".vim folder not set up yet find ~/.vim looks like so"
     find ~/.vim
 	read -p "Do you want me to copy over .vim/<folders>  (backups|colors|swaps|syntax|undo) into ~ (y/n) " -n 1;
