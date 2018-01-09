@@ -1,6 +1,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 
+export MAVEN_OPTS="-Xms256m -Xmx512m"
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
