@@ -1,5 +1,7 @@
 #! /bin/bash
 
+# clear the screen
+alias c='clear'
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
