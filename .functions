@@ -8,8 +8,8 @@ function mkd() {
 
 # find in a code folder -git -idea -target
 function cfind(){
-   echo "$1"
-   find `$1` -type f -not -path "*.idea/*" -not -path "*.git/*" -not -path "*target/*" "$@"
+   CODE_PATH=${1%/}  # Remove trailing slash if present
+   find ${CODE_PATH} -type f -not -path '*.idea/*' -not -path '*.git/*' -not -path '*target/*'
 }
 
 
