@@ -5,6 +5,14 @@ function mkd() {
     mkdir -p "$@" && cd "$_";
 }
 
+
+# find in a code folder -git -idea -target
+function cfind(){
+   CODE_PATH=${1%/}  # Remove trailing slash if present
+   find ${CODE_PATH} -type f -not -path '*.idea/*' -not -path '*.git/*' -not -path '*target/*'
+}
+
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
     cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";

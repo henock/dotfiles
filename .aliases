@@ -15,6 +15,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 
+
 # Create links to alias for all projects
 for i in $(ls ~/projects); do  alias c.$i='cd ~/projects/'$i; done
 
@@ -75,7 +76,6 @@ fi
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
-
 # List all files colorized in long format
 alias l="ls -ltrF "
 
@@ -96,6 +96,10 @@ alias lsd="la | grep --color=never '^d'"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# Looking at files
+alias lsi='less -i'
+alias tlf='tail -Fn100'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
