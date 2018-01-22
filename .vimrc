@@ -1,4 +1,4 @@
-source .vimrc_extra
+source ~/.vimrc_extra
 
 " Use the Solarized Dark theme
 " set background=dark
