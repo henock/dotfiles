@@ -11,11 +11,11 @@
 
 # Only ever want to do this the first time
 function copy_vim_files_to_root(){
-	cp -r ./.vim/backups/ ~/.vim/backups
-	cp -r ./.vim/colors ~/.vim/colors
-	cp -r ./.vim/syntax/ ~/.vim/syntax
-	cp -r ./.vim/swaps/ ~/.vim/swaps
-	cp -r ./.vim/undo/ ~/.vim/undo
+  cp -r ./.vim/backups/ ~/.vim/backups
+  cp -r ./.vim/colors ~/.vim/colors
+  cp -r ./.vim/syntax/ ~/.vim/syntax
+  cp -r ./.vim/swaps/ ~/.vim/swaps
+  cp -r ./.vim/undo/ ~/.vim/undo
 }
 
 
@@ -37,29 +37,39 @@ BASEDIR="`(cd \"$SCRIPT_INDIRECT\"; pwd -P)`"
 # Only deploy the files I have understood.
 for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,functions,gitconfig,vimrc,gvimrc,curlrc,gitignore_global,inputrc}; do
     [ ! -f $i ] && continue
-	FILEDIR=`dirname $i`
-	FILE=`basename $i`
-	BASEFILE=$HOME/$FILE
+  FILEDIR=`dirname $i`
+  FILE=`basename $i`
+  BASEFILE=$HOME/$FILE
 
-	if [ -f $BASEFILE -o -h $BASEFILE ]; then
-		echo "Replacing file: $BASEFILE"
-		rm $BASEFILE
-	else
-		echo "Creating link: $BASEFILE"
-	fi
+  if [ -f $BASEFILE -o -h $BASEFILE ]; then
+    echo "Replacing file: $BASEFILE"
+    rm $BASEFILE
+  else
+    echo "Creating link: $BASEFILE"
+  fi
 
-	ln -s $i $BASEFILE
+  ln -s $i $BASEFILE
 done
 
 if [ ! -e ~/.vim/swaps/ ]; then
     echo ".vim folder not set up yet find ~/.vim looks like so"
     find ~/.vim
-	read -p "Do you want me to copy over .vim/<folders>  (backups|colors|swaps|syntax|undo) into ~ (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		copy_vim_files_to_root;
-	fi;
+  read -p "Do you want me to copy over .vim/<folders>  (backups|colors|swaps|syntax|undo) into ~ (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    copy_vim_files_to_root;
+  fi;
 fi
+
+#put in _extra files if they dont already exist
+for extra in .vimrc_extra .gvimrc_extra .extra; do
+  if [ ! -f ~/$extra ]; then 
+    echo "$extra not found in ~"
+    ls ~/$extra
+    echo "touching $extra file in ~"
+    touch ~/$extra
+  fi
+done 
 
 # Make a pass deleting stale links, if any
 echo "Deleting stale links"
