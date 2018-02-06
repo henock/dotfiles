@@ -50,14 +50,14 @@ alias mct='mvn clean test'
 
 
 # docker
-alias dokrn='docker run -it'
-alias dokup='docker-compose up'
-alias dokstp='docker-compose stop'
-alias dokbld='docker build .'
-alias doki='docker images'
-alias dokrmi='docker rmi'
-alias dokp='docker ps'
-alias dokpa='docker ps -a'
+alias dkrn='docker run -it'
+alias dkup='docker-compose up'
+alias dkstp='docker-compose stop'
+alias dkb='docker build '
+alias dki='docker images'
+alias dkrmi='docker rmi'
+alias dkp='docker ps'
+alias dkpa='docker ps -a'
 
 
 
