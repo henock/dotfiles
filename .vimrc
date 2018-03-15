@@ -62,9 +62,14 @@ syntax on
 
 " Highlight current line
 set cursorline
+" Set the colour on the cursorline
+highlight  CursorLine ctermbg=Yellow ctermfg=None
+
+" Expand tabs
+set expandtab
 
 " Make tabs as wide as two spaces
-set tabstop=2
+set tabstop=4
 
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -138,4 +143,8 @@ if has("autocmd")
 	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+    " Change colour when in insert mode
+    autocmd InsertEnter * highlight  CursorLine ctermbg=Green ctermfg=Red
+    " Change colour back when back in normal mode
+    autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
 endif
