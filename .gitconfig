@@ -81,6 +81,7 @@
     # Speed up commands involving untracked files such as `git status`.
     # https://git-scm.com/docs/git-update-index#_untracked_cache
     untrackedCache = true
+	  autocrlf = input
 
 [color]
 
@@ -162,3 +163,9 @@
     insteadOf = "gist:"
 [gpg]
     program = gpg1
+[difftool "sourcetree"]
+	  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	  path =
+[mergetool "sourcetree"]
+	  cmd = /Applications/SourceTree-Downloaded.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	  trustExitCode = true
