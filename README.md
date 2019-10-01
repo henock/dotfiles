@@ -1,6 +1,6 @@
-# Mathias’s dotfiles
+# Henock's dotfiles (Cloned from Mathias’s dotfiles) and updated to my liking
 
-![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
+![Screenshot of my shell prompt](dotfiles-screenshot.png)
 
 ## Installation
 
