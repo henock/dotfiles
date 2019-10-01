@@ -318,11 +318,11 @@
   },
   "Shortcut" : "",
   "Cursor Color" : {
-    "Red Component" : 0,
+    "Red Component" : 1,
     "Color Space" : "sRGB",
-    "Blue Component" : 0,
+    "Blue Component" : 1,
     "Alpha Component" : 1,
-    "Green Component" : 0
+    "Green Component" : 1
   },
   "Transparency" : 0,
   "Ansi 0 Color" : {
