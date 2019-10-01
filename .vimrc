@@ -1,9 +1,9 @@
 source ~/.vimrc_extra
 
 " Use the Solarized Dark theme
-" set background=dark
-" colorscheme solarized
-" let g:solarized_termtrans=1
+ set background=dark
+ colorscheme solarized
+ let g:solarized_termtrans=1
 
 " Make Vim more useful
 set nocompatible
@@ -63,7 +63,7 @@ syntax on
 " Highlight current line
 set cursorline
 " Set the colour on the cursorline
-highlight  CursorLine ctermbg=Yellow ctermfg=None
+highlight  CursorLine ctermbg=Black ctermfg=None
 
 " Expand tabs
 set expandtab
