@@ -1,4 +1,4 @@
-## Henock's dotfiles (Cloned from Mathias’s dotfiles) and updated to my liking.
+## Henock's dotfiles (forked from Mathias’s dotfiles) and updated to my liking.
 
 ![Screenshot of my shell prompt](dotfiles-screenshot.png)
 
@@ -87,6 +87,11 @@ Some of the functionality of these dotfiles depends on formulae installed by `br
 
 Suggestions/improvements
 [welcome](https://github.com/henock/dotfiles/issues)!
+
+## Author
+
+| Henock Zewde |
+|---
 
 ## Original Author
 
