@@ -95,7 +95,7 @@ fi;
 show_non_zero_response_code(){
    RETURN_CODE=$?;
    if [[ $RETURN_CODE != 0 ]] ; then
-      echo -e "\n${red}Non zero response code=${RETURN_CODE}";
+      echo -e "\n\n\n${red}Non zero response code=${RETURN_CODE}";
    fi
 }
 

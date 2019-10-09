@@ -90,6 +90,9 @@ alias cl="clear && l"
 # List all files colorized in long format, including dot files
 alias cla="clear && la"
 
+# List all files colorized in long format, including dot files
+alias cld="cla | grep '^d'"
+
 # List only directories
 alias lsd="la | grep --color=never '^d'"
 
