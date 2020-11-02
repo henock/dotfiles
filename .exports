@@ -39,8 +39,10 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-# after 
-# $ brew remove groovy 
+# after
+# $ brew remove groovy
 # $ brew install groovysdk
 export GROOVY_HOME=/usr/local/bin/groovy
 
+# JAVA_HOME
+export JAVA_HOME=$(/usr/libexec/java_home)
