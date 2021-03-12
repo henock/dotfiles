@@ -117,14 +117,14 @@ fi;
 PS1="\[\033]0;\W\007\]"; # terminal title is working directory base name
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${black}\] at ";
+PS1+="\[${white}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${black}\] in ";
+PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory full path
 PS1+='$(show_non_zero_response_code)'       # If response code from last command is not zero then echo Non zero response code=<response code>
-PS1+="\$(prompt_git \"\[${black}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
+PS1+="\$(prompt_git \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\")"; # Git repository details
 PS1+="\n";
-PS1+="\[${black}\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${yellow}\]→ \[${reset}\]";
