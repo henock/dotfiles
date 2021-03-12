@@ -34,7 +34,7 @@ BASEDIR="`(cd \"$SCRIPT_INDIRECT\"; pwd -P)`"
 
 # SCRIPT_INDIRECT becomes /Users/henock/projects/dotfiles/.
 
-# Only deploy the files I have understood.
+# Only deploy the files I have read through and are happy to use.
 for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,functions,gitconfig,vimrc,gvimrc,curlrc,gitignore_global,inputrc}; do
     [ ! -f $i ] && continue
   FILEDIR=`dirname $i`
@@ -51,6 +51,24 @@ for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,func
   ln -s $i $BASEFILE
 done
 
+# if the ~/bin/files are not present copy them in
+for i in bin/*; do
+    file_name=$(basename $i)
+	if [ ! -f ~/bin/$file_name ]; then
+	  echo
+	  read -p "Could not find $file_name in ~/bin folder do you want to copy it in? (y/n) " -n 1;
+	  echo "";
+	  if [[ $REPLY =~ ^[Yy]$ ]]; then
+		echo "Coping in $i"
+		if [ ! -e ~/bin ]; then
+			echo "Creating ~/bin folder."
+			mkdir ~/bin
+		fi
+		test -h $file_name && cp -R $i ~/bin/ || cp -rf $i ~/bin/
+	  fi;
+	fi
+done
+
 if [ ! -e ~/.vim/swaps/ ]; then
     echo ".vim folder not set up yet find ~/.vim looks like so"
     find ~/.vim
@@ -63,13 +81,13 @@ fi
 
 #put in _extra files if they dont already exist
 for extra in .vimrc_extra .gvimrc_extra .extra; do
-  if [ ! -f ~/$extra ]; then 
+  if [ ! -f ~/$extra ]; then
     echo "$extra not found in ~"
     ls ~/$extra
     echo "touching $extra file in ~"
     touch ~/$extra
   fi
-done 
+done
 
 # Make a pass deleting stale links, if any
 echo "Deleting stale links"
