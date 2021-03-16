@@ -31,7 +31,6 @@ case $0 in
 esac
 
 BASEDIR="`(cd \"$SCRIPT_INDIRECT\"; pwd -P)`"
-
 # SCRIPT_INDIRECT becomes /Users/henock/projects/dotfiles/.
 
 # Only deploy the files I have read through and are happy to use.
@@ -50,6 +49,27 @@ for i in "$SCRIPT_INDIRECT"{bash_profile,bashrc,bash_prompt,exports,aliases,func
 
   ln -s $i $BASEFILE
 done
+
+# Create symlink for sublime.
+if [ -e "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ]; then
+	if [ ! -e ~/bin ]; then
+		mkdir ~/bin
+		echo "Created ~/bin folder"
+	fi
+	if [ ! -e ~/bin/sublime ]; then
+		echo "Symlink to Sublime not found adding it."
+		ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sublime
+		echo "Done."
+	else
+		echo "Sublime already found in bin."
+	fi
+else
+	echo "================================================================================"
+	echo "|     Sublime not found on the system - you will need to install it first!     |"
+	echo "================================================================================"
+	echo "sleeping for 3"
+	sleep 3
+fi
 
 # if the ~/bin/files are not present copy them in
 for i in bin/*; do
